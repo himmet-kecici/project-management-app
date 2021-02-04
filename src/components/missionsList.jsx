@@ -1,9 +1,15 @@
 import React from 'react'
+import Mission from './Mission'
 
-const MissionList = () => {
+const MissionList = (props) => {
     return (
         <div>
-            missionlist component
+            <div className='card-header text-uppercase text-center font-weight-bold '>
+                {props.status}
+            </div>
+            {props.missions.map(mission => (
+                <Mission key={mission.id} mission={mission} onStatusChange={props.onStatusChange} />
+            ))}
         </div>
     )
 }

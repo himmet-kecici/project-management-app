@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import MissionList from './MissionsList'
 
-const MISSIONS_STATUSES = ['Unsarted', 'In Progress', 'Completed']
 
-const MissionsPage = () => {
+const MISSIONS_STATUSES = ['Unstarted', 'In Progress', 'Completed']
+
+const MissionsPage = (props) => {
 
     const [missionForm, showMissionForm] = useState(false)
     const [title, setTitle] = useState('')
@@ -19,7 +21,17 @@ const MissionsPage = () => {
     const formToggler = () => {
         showMissionForm(!missionForm)
     }
-
+    const renderMissionsLists = () => {
+        const { missions } = props;
+        return MISSIONS_STATUSES.map((status, id) => {
+            const statusMissions = missions.filter(mission => mission.status === status)
+            return (
+                <div className="col-md-3 card m-2 p-0" key={id}>
+                    <MissionList key={status} status={status} missions={statusMissions} onStatusChange={props.onStatusChange} />
+                </div>
+            )
+        })
+    }
     return (
         <div className="container  my-5">
             <div className='jumbotron py-3'>
@@ -42,9 +54,10 @@ const MissionsPage = () => {
                             <textarea type='text' className='form-control' placeholder='Mission Description' onChange={onDescriptionChange}>
                             </textarea>
                         </div>
-                        <button type='submit' className='btn btn-primary'>Submit</button>
+                        <button type='submit' className='btn btn-primary'>&#10003;</button>
                     </form>)}
             </div>
+            <div className='row d-flex justify-content-center position-relative' style={{ background: '#e9ecef' }}>{renderMissionsLists()}</div>
         </div >
     )
 }
