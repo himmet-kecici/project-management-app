@@ -1,3 +1,5 @@
+import editMission from './utils'
+
 const initialState = [
     {
         id: 1,
@@ -25,12 +27,7 @@ const missions = (state = { missions: initialState }, action) => {
     switch (action.type) {
         case "EDIT_MISSION": {
             return {
-                missions: state.missions.map((mission) => {
-                    if (mission.id === payload.id) {
-                        return Object.assign({}, mission, payload.params)
-                    }
-                    return mission;
-                })
+                missions: editMission(state, payload)
             }
         }
         default: return state
