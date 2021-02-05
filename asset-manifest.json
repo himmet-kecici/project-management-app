@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.js": "/project-management-app/static/js/main.b8580eb4.chunk.js",
+    "main.js.map": "/project-management-app/static/js/main.b8580eb4.chunk.js.map",
+    "runtime-main.js": "/project-management-app/static/js/runtime-main.4d984c9c.js",
+    "runtime-main.js.map": "/project-management-app/static/js/runtime-main.4d984c9c.js.map",
+    "static/css/2.150d169a.chunk.css": "/project-management-app/static/css/2.150d169a.chunk.css",
+    "static/js/2.fda25364.chunk.js": "/project-management-app/static/js/2.fda25364.chunk.js",
+    "static/js/2.fda25364.chunk.js.map": "/project-management-app/static/js/2.fda25364.chunk.js.map",
+    "static/js/3.6a081121.chunk.js": "/project-management-app/static/js/3.6a081121.chunk.js",
+    "static/js/3.6a081121.chunk.js.map": "/project-management-app/static/js/3.6a081121.chunk.js.map",
+    "index.html": "/project-management-app/index.html",
+    "static/css/2.150d169a.chunk.css.map": "/project-management-app/static/css/2.150d169a.chunk.css.map",
+    "static/js/2.fda25364.chunk.js.LICENSE.txt": "/project-management-app/static/js/2.fda25364.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4d984c9c.js",
+    "static/css/2.150d169a.chunk.css",
+    "static/js/2.fda25364.chunk.js",
+    "static/js/main.b8580eb4.chunk.js"
+  ]
+}
