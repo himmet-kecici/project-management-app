@@ -9,7 +9,7 @@ const MissionList = (props) => {
             </div>
             <div>
                 {props.missions.map(mission => (
-                    <Mission key={mission.id} mission={mission} onStatusChange={props.onStatusChange} />
+                    <Mission key={mission.id} mission={mission} />
                 ))}
             </div>
         </div>
