@@ -7,9 +7,11 @@ const MissionList = (props) => {
             <div className='card-header text-uppercase text-center font-weight-bold '>
                 {props.status}
             </div>
-            {props.missions.map(mission => (
-                <Mission key={mission.id} mission={mission} onStatusChange={props.onStatusChange} />
-            ))}
+            <div>
+                {props.missions.map(mission => (
+                    <Mission key={mission.id} mission={mission} onStatusChange={props.onStatusChange} />
+                ))}
+            </div>
         </div>
     )
 }

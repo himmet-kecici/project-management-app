@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
 import MissionList from './MissionsList'
+import { connect } from 'react-redux'
+import { createMission } from '../redux/actions';
+
+
 
 
 const MISSIONS_STATUSES = ['Unstarted', 'In Progress', 'Completed']
@@ -21,13 +25,28 @@ const MissionsPage = (props) => {
     const formToggler = () => {
         showMissionForm(!missionForm)
     }
+
+    const resetForm = () => {
+        setTitle('')
+        setDescription('')
+        showMissionForm(false)
+    }
+
+
+    const onCreateMissions = (e) => {
+        e.preventDefault()
+        props.dispatch(createMission({
+            title, description
+        }))
+        resetForm()
+    }
     const renderMissionsLists = () => {
         const { missions } = props;
         return MISSIONS_STATUSES.map((status, id) => {
             const statusMissions = missions.filter(mission => mission.status === status)
             return (
                 <div className="col-md-3 card m-2 p-0" key={id}>
-                    <MissionList key={status} status={status} missions={statusMissions} onStatusChange={props.onStatusChange} />
+                    <MissionList key={status} status={status} missions={statusMissions} />
                 </div>
             )
         })
@@ -46,7 +65,7 @@ const MissionsPage = (props) => {
                     </div>
                 </div>
                 {missionForm && (
-                    < form >
+                    < form onSubmit={onCreateMissions}>
                         <div className='form-group'>
                             <input type='text' className='form-control' placeholder='Mission Title' onChange={onChangeTitle} />
                         </div>
@@ -62,4 +81,8 @@ const MissionsPage = (props) => {
     )
 }
 
-export default MissionsPage
+const mapStateToProps = state => ({
+    missions: state.missions
+})
+
+export default connect(mapStateToProps)(MissionsPage)
